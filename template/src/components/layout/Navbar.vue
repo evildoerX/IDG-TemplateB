@@ -5,8 +5,8 @@
 			</el-col>
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="click">
-					<span class="el-dropdown-link userinfo-inner">
-					CH</span>
+					<span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar" />
+					{{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item>我的消息</el-dropdown-item>
 						<el-dropdown-item>设置</el-dropdown-item>
