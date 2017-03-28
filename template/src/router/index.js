@@ -4,7 +4,6 @@ import AppMain from '../components/layout/AppMain.vue'
 import Home from '../view/Home.vue'
 import Table from '../view/nav1/Table.vue'
 import Form from '../view/nav1/Form.vue'
-import Forum from '../view/nav1/Forum.vue'
 import user from '../view/nav1/user.vue'
 import Page4 from '../view/nav2/Page4.vue'
 import Page5 from '../view/nav2/Page5.vue'
@@ -42,8 +41,7 @@ let routes = [
         children: [
             { path: '/table', component: Table, name: 'Table' },
             { path: '/form', component: Form, name: 'Form' },
-            { path: '/user', component: user, name: '列表' },
-            { path: '/forum', component: Forum, name: 'Forum' }
+            { path: '/user', component: user, name: '列表' }
         ]
     },
     {

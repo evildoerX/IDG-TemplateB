@@ -1,12 +1,12 @@
 <template>
 	<el-row class="header">
 		<el-col :span="20" class="logo">
-				<span>Vue<i class="txt">Admin</i></span>
+				<span class="txt">智慧中台</span>
 			</el-col>
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="click">
 					<span class="el-dropdown-link userinfo-inner">
-					{{sysUserName}}</span>
+					CH</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item>我的消息</el-dropdown-item>
 						<el-dropdown-item>设置</el-dropdown-item>

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import { requestLogin } from '../api/login';
+  import { requestLogin } from '../api/api';
   import NProgress from 'nprogress'
   export default {
     data() {
@@ -45,9 +45,32 @@
       },
       handleSubmit2(ev) {
         var _this = this;
-        sessionStorage.setItem('user', JSON.stringify('admin'));
-        this.$router.push({ path: '/home' });
-
+        this.$refs.ruleForm2.validate((valid) => {
+          if (valid) {
+            //_this.$router.replace('/table');
+            this.logining = true;
+            NProgress.start();
+            var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
+            requestLogin(loginParams).then(data => {
+              this.logining = false;
+              NProgress.done();
+              let { msg, code, user } = data;
+              if (code !== 200) {
+                this.$notify({
+                  title: '错误',
+                  message: msg,
+                  type: 'error'
+                });
+              } else {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                this.$router.push({ path: '/table' });
+              }
+            });
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
       }
     }
   }
